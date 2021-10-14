@@ -47,7 +47,7 @@ export const ContactsPage = (props) => {
       setDuplicate(true);
     }
     return;
-  });
+  }, [contacts, name]);
   
   const removeItem = (contactToRemove) => {
     setContacts(prev => (prev.filter(item => item.name !== contactToRemove)));
