@@ -10,6 +10,7 @@ function App() {
 
   const [contacts, setContacts] = useState([]);
   const [appointments, setAppointments] = useState([]);
+  const [language, setLanguage] = useState('');
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -27,7 +28,10 @@ function App() {
   const addAppointment = (title, contact, date, time) => {
     setAppointments((prev) => [...prev, {title, contact, date, time}])
   };
-
+  
+  const toggleLanguage = (lang) => {
+    setLanguage(lang);
+  }
  
   
 
@@ -42,19 +46,20 @@ function App() {
         <NavLink to={ROUTES.APPOINTMENTS} activeClassName="active">
           Appointments
         </NavLink>
-      </nav>
+      </nav> 
+      
       <main>
         <Switch>
           <Route exact path="/">
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}>
-            {/* Add props to ContactsPage */}
-            <ContactsPage addContact={addContact} contacts={contacts} setContacts={setContacts} />
+            
+            <ContactsPage addContact={addContact} contacts={contacts} setContacts={setContacts} language={language}/>
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            {/* Add props to AppointmentsPage */}
-            <AppointmentsPage addAppointment={addAppointment} appointments={appointments} setAppointments={setAppointments} contacts={contacts} />
+            
+            <AppointmentsPage addAppointment={addAppointment} appointments={appointments} setAppointments={setAppointments} contacts={contacts} language={language}/>
           </Route>
         </Switch>
       </main>

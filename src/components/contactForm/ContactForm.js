@@ -14,21 +14,22 @@ export const ContactForm = ({
       <input 
         type='text' 
         value={name} 
-        onChange={({target}) => setName(target.value)}
-        placeholder='Contact Name'
+        onChange={(e) => setName(e.target.value)}
+        placeholder='Contact Name (required)'
+        required
       />
       <input 
         type='tel'
         value={phone} 
-        onChange={({target}) => setPhone(target.value)}
-        placeholder='Phone Number'
-        
+        onChange={(e) => setPhone(e.target.value)}
+        placeholder='Phone Number (required)'
+        required
       />
       <input 
         type='email' 
         value={email} 
-        onChange={({target}) => setEmail(target.value)}
-        placeholder='E-mail address'
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder='E-mail address (optional)'
       />
       <input type='submit'/>
     </form>
