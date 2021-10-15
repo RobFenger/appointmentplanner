@@ -10,7 +10,6 @@ function App() {
 
   const [contacts, setContacts] = useState([]);
   const [appointments, setAppointments] = useState([]);
-  const [language, setLanguage] = useState('');
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -28,12 +27,7 @@ function App() {
   const addAppointment = (title, contact, date, time) => {
     setAppointments((prev) => [...prev, {title, contact, date, time}])
   };
-  
-  const toggleLanguage = (lang) => {
-    setLanguage(lang);
-  }
  
-  
 
 
   return (
