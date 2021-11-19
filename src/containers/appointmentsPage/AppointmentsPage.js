@@ -32,6 +32,7 @@ export const AppointmentsPage = (props) => {
 
   const removeItem = (appointmentToRemove) => {
     setAppointments(prev => (prev.filter(item => item.title !== appointmentToRemove)));
+    localStorage.setItem('appointments', JSON.stringify(props.appointments));
   };
 
   return (

@@ -51,6 +51,7 @@ export const ContactsPage = (props) => {
   
   const removeItem = (contactToRemove) => {
     setContacts(prev => (prev.filter(item => item.name !== contactToRemove)));
+    localStorage.setItem('contacts', JSON.stringify(props.contacts));
   };
 
   return (
