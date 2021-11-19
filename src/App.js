@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, Redirect, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
@@ -52,9 +52,9 @@ function App() {
       
       <main>
         <Switch>
-          <Route exact path="/">
+          {/*<Route exact path="/">
             <Redirect to={ROUTES.CONTACTS} />
-          </Route>
+  </Route>*/}
           <Route path={ROUTES.CONTACTS}>
             
             <ContactsPage addContact={addContact} contacts={contacts} setContacts={setContacts} />
