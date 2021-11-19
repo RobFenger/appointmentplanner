@@ -12,8 +12,8 @@ function App() {
   const [appointments, setAppointments] = useState(JSON.parse(localStorage.getItem('appointments')) || []);
 
   const ROUTES = {
-    CONTACTS: "/contacts",
-    APPOINTMENTS: "/appointments",
+    CONTACTS: "/*/contacts",
+    APPOINTMENTS: "/*/appointments",
   };
 
   useEffect(() => {
