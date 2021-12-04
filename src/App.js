@@ -4,30 +4,27 @@ import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {
-  /*
-  state variables for contacts and appointments 
-  */
+  //state variables for contacts and appointments and added localStorage to get all saved contacts/appointments when entering the page again
 
   const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) || []);
   const [appointments, setAppointments] = useState(JSON.parse(localStorage.getItem('appointments')) || []);
 
   const ROUTES = {
-    CONTACTS: "/*/contacts",
-    APPOINTMENTS: "/*/appointments",
+    CONTACTS: "/contacts",
+    APPOINTMENTS: "/appointments",
   };
 
+  //useEffect to set new contacts into localStorage
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts])
 
+  //useEffect to set new appointments into localStorage
   useEffect(() => {
     localStorage.setItem('appointments', JSON.stringify(appointments));
   }, [appointments])
 
-  /*
-  functions to add data to contacts and appointments
-  */
-
+  //functions to add data to contacts and appointments
   const addContact = (name, phone, email) => {
     setContacts((prev) => [...prev, {name, phone, email}])
   };
@@ -69,4 +66,5 @@ function App() {
   );
 }
 
+//export to index.js to render
 export default App;

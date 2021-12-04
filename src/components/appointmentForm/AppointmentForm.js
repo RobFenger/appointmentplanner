@@ -22,6 +22,8 @@ export const AppointmentForm = ({
 
   return (
     <form onSubmit={handleSubmit}>
+
+      {/* input-fields for appointment-title, date and time and directly put input into state*/}
       <input 
         type='text' 
         value={title} 

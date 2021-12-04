@@ -4,6 +4,7 @@ import App from './App';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
+//to get all the React-files rendered onto the final page
 ReactDOM.render(
   <Router>
     <App />

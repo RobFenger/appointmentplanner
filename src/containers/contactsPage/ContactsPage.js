@@ -3,28 +3,22 @@ import {ContactForm} from '../../components/contactForm/ContactForm';
 import {TileList} from '../../components/tileList/TileList';
 
 export const ContactsPage = (props) => {
-  /*
-  Define state variables for 
-  contact info and duplicate check
-  */
+  //get the props from app.js into easy to handle variables
   const contacts = props.contacts;
   const addContact = props.addContact;
   const setContacts = props.setContacts;
 
+  //Define state variables for contact info and duplicate check
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [duplicate, setDuplicate] = useState(false);
 
   
-
+  
+  //contact info and clear data if the contact name is not a duplicate  
   const handleSubmit = (e) => {
     e.preventDefault();
-    /*
-    contact info and clear data
-    if the contact name is not a duplicate
-    */
-
     if (duplicate === false) {
       addContact(name, phone, email);
       setName('');
@@ -38,10 +32,8 @@ export const ContactsPage = (props) => {
     }
   };
 
-  /*
-  Using hooks, check for contact name in the 
-  contacts array variable in props
-  */
+  
+  //check for contact name in the contacts array variable in props
   useEffect(() => {
     if (contacts.some(obj => name === obj.name)) {
       setDuplicate(true);
@@ -49,6 +41,7 @@ export const ContactsPage = (props) => {
     return;
   }, [contacts, name]);
   
+  //function to filter out the contact from state and update the localStorage
   const removeItem = (contactToRemove) => {
     setContacts(prev => (prev.filter(item => item.name !== contactToRemove)));
     localStorage.setItem('contacts', JSON.stringify(props.contacts));
@@ -58,6 +51,7 @@ export const ContactsPage = (props) => {
     <div>
       <section>
         <h2>Add Contact</h2>
+        {/* connect contactform to handlesubmit function */}
         <ContactForm 
           name={name}
           phone={phone}

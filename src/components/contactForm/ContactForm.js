@@ -10,6 +10,7 @@ export const ContactForm = ({
   handleSubmit
 }) => {
   return (
+    // send the form to handlesubmit (contactspage.js)
     <form onSubmit={handleSubmit}>
       <input 
         type='text' 
